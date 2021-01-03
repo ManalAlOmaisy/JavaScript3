@@ -19,19 +19,31 @@ const url = 'https://dog.ceo/api/breeds/image/random';
 
 function randomDog(){
     
-const xhr = new XMLHttpRequest();
-xhr.responseType = 'json';
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
 
-xhr.onload = () => {
-  img.src = xhr.response.message;
-  img.style.width = '300px';
-  img.style.height = '300px';
-}
-xhr.onerror = () => {
-    console.log(`something went wrong ${error}`)
-}
+  xhr.onload = () => {
+    if(xhr.status >= 200 && xhr.status <= 400){
+      const item = xhr.response.message;
+      renderImage(item)
+    }
+    else{
+      console.log("HTTP Error:", xhr.status)
+    }
+  }
+  xhr.onerror = () => {
+      console.log(`something went wrong ${error}`)
+  }
   xhr.open('GET', url);
   xhr.send();
+}
+
+//create render image
+function renderImage(item){
+  img.src = ""; // to clear the img
+  img.src =item;
+  img.style.width = '300px';
+  img.style.height = '300px';
 }
 
   // using the XMLHttpRequest
@@ -41,9 +53,9 @@ function randomDogWithAxios(){
    axios.get(url)
   .then(function (response) {
     // handle success
-    img.src = response.data.message;
-    img.style.width = '300px';
-    img.style.height = '300px';
+    const item  = response.data.message;
+    renderImage(item);
+    
   })
   .catch(function (error) {
    li.innerText = error;

@@ -1,8 +1,3 @@
-// const button = document.getElementById('button');
-// const button2 = document.getElementById('button-Two');
-
-// button.addEventListener('click', humor);
-// button2.addEventListener('click', humorTwo);
 
 const url = 'https://xkcd.now.sh/?comic=latest';
 
@@ -15,17 +10,22 @@ document.body.appendChild(img);
 
 function humor(){
     
-const xhr = new XMLHttpRequest();
-xhr.responseType = 'json';
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
 
-xhr.onload = ()=> {
-   img.src = xhr.response.img;
-   console.log(xhr.response)
-}
+  xhr.onload = ()=> {
+    if (xhr.status >= 200 && xhr.status <= 400){
+      img.src = xhr.response.img;
+      console.log(xhr.response)
+      }
+      else {
+        console.log("HTTP Error :", xhr.status);
+      }
+  }
 
-xhr.onerror = () => {
-    console.log(`something went wrong ${error}`)
-}
+  xhr.onerror = () => {
+      console.log(`something went wrong ${error}`)
+  }
   xhr.open('GET', url);
   xhr.send();
 }
@@ -34,7 +34,7 @@ xhr.onerror = () => {
 
 function humorTwo(){
     
-   axios.get(url)
+  axios.get(url)
   .then(function (response) {
     // handle success
     img.src = response.data.img;

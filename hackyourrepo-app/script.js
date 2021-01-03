@@ -41,23 +41,19 @@ const repoSelect = document.getElementById("repo");
 
 // looping inside the select tag to create the opitons
 
-for( let i=0 ; i < placeholderRepos.length; i++){
-  const option = document.createElement('option')
-  option.value = placeholderRepos[i].name;
-  option.innerText = placeholderRepos[i].name;
-  repoSelect.appendChild(option)
+placeholderRepos.forEach((element, index)=> {
+    const option = document.createElement('option')
+    option.value = index;
+    option.innerText = element.name;
+    repoSelect.appendChild(option)
 
-}
+})
 
-repoSelect.addEventListener('change', function(){
+repoSelect.addEventListener('change', function(event){
 
-for(let i = 0; i < placeholderRepos.length; i++){
-
-  if(repoSelect.value === placeholderRepos[i].name){
-    repositoryName.innerText = placeholderRepos[i].name;
-    Description.innerText = placeholderRepos[i].description;
-    forks.innerText = placeholderRepos[i].forks;
-    updated.innerText = placeholderRepos[i].updated;
-    }}
-
+    repositoryName.innerText = placeholderRepos[event.target.value].name;
+    Description.innerText = placeholderRepos[event.target.value].description;
+    forks.innerText = placeholderRepos[event.target.value].forks;
+    updated.innerText = placeholderRepos[event.target.value].updated;
+  
 })
