@@ -1,3 +1,128 @@
 /* 
   Write here your CSS rules for HackYourRepo!
 */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;;
+}
+.container{
+  margin:auto;
+  max-width: 80%;
+}
+#nav {
+  background-color:  #3f51b5;
+  color:white;
+  display: flex;
+  padding-left: 20px;
+  height: 70px;
+  padding-top: 20px;
+  margin: 5px;
+  align-items: center;
+}
+select{
+  margin-left: 20px;
+  height:30px;
+  width: 250px;
+ }
+
+#content{
+  display: flex;
+  justify-content: space-between;
+  
+}
+table{
+  border:1px solid rgb(216, 211, 211);
+  box-shadow: 1px 2px 3px  rgb(216, 211, 211);
+  width:50%;
+  margin: 5px;
+  padding:20px;
+  height:200px;
+}
+
+tr{
+  vertical-align: top; 
+}
+
+td:first-child{
+font-weight: bold;
+width : 120px
+}
+
+td:nth-child(2){
+  font-size: 15px;
+  padding-left : 15px;
+}
+
+#contributors{
+  width:50%;
+  height:600px;
+  padding-top:5px;
+  color:grey;
+}
+.contribution{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border:1px solid rgb(216, 211, 211);
+  box-shadow:1px 2px 3px rgb(216, 211, 211);
+  padding: 10px 30px;
+}
+.badge{
+  background-color: rgb(143, 134, 134);
+  color: white;
+  border-radius: 5px;
+  padding:5px 10px;
+  margin-left :auto;
+  font-size: 15px;
+}
+.link{
+  text-decoration: none;
+  margin-left :20px;
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+
+  select{
+    margin-right: 20px;
+  }
+
+  #nav{
+    width :100%;
+  }
+  
+  #content{
+    flex-direction: column ;
+  }
+ 
+  #contributors,table{
+    width:100%;
+    margin : 10px;
+  }
+
+  } 
+
+  @media only screen and (max-width: 768px) {
+    body{
+      font-size: 16px;
+    }
+    #nav{
+      width :100%;
+    }
+    select{
+      margin-right: 20px;
+    }
+    #content{
+      flex-direction: column ;
+    }
+   
+    #contributors,table{
+      width: 100%;
+      margin : 10px;
+    }
+  } 
