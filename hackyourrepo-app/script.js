@@ -20,9 +20,9 @@ function main(){
   const select= document.createElement("select");
   header.appendChild(select);
 
-  // const defaultOption = document.createElement("option")
-  // defaultOption.innerText = "Select Repo";
-  // select.appendChild(defaultOption)
+  const defaultOption = document.createElement("option")
+  defaultOption.innerText = "Select Repo";
+  select.appendChild(defaultOption)
 
 // ******************************************************
 
