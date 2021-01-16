@@ -33,7 +33,7 @@ placeholderRepos.sort((a, b) => a.name > b.name ? 1 : -1);
 
 
 const repositoryName = document.getElementById("Repository");
-const Description= document.getElementById("Description");
+const description= document.getElementById("Description");
 const forks= document.getElementById("Forks");
 const updated= document.getElementById("Updated");
 const repoSelect = document.getElementById("repo");
@@ -51,9 +51,11 @@ placeholderRepos.forEach((element, index)=> {
 
 repoSelect.addEventListener('change', function(event){
 
-    repositoryName.innerText = placeholderRepos[event.target.value].name;
-    Description.innerText = placeholderRepos[event.target.value].description;
-    forks.innerText = placeholderRepos[event.target.value].forks;
-    updated.innerText = placeholderRepos[event.target.value].updated;
+   const selectRepo = placeholderRepos[event.target.value];
+
+    repositoryName.innerText = selectRepo.name;
+    Description.innerText = selectRepo.description;
+    forks.innerText = selectRepo.forks;
+    updated.innerText = selectRepo.updated;
   
 })
