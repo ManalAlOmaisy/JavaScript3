@@ -3,9 +3,9 @@ const buttonAxios = document.getElementById('button-Two');
 
 const ul = document.createElement('ul')
 const li = document.createElement('li')
-const img = document.createElement('img')
 
-li.appendChild(img);
+
+
 ul.appendChild(li);
 document.body.appendChild(ul);
 
@@ -40,10 +40,13 @@ function randomDog(){
 
 //create render image
 function renderImage(item){
+  const img = document.createElement('img')
   img.src = ""; // to clear the img
+  
   img.src =item;
   img.style.width = '300px';
   img.style.height = '300px';
+  li.appendChild(img);
 }
 
   // using the XMLHttpRequest
