@@ -1,10 +1,9 @@
 // Module 6 
 
 import{fetchContributor} from './M5_fetchContributor.js';
-
-
 export let currentPage = 1;
 export let rows = 5;
+
 
 export async function contributionList(num, rowsPerPage, page){
 
